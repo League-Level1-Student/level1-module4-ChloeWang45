@@ -15,6 +15,6 @@ public class FortuneTellerRunner {
     
     static void begin() {
       	 // Welcome the user. Give them a hint for the secret location.
-    	JOptionPane.showMessageDialog(null, "Welcome!");
+    	JOptionPane.showMessageDialog(null, "Welcome! Find the secret location to ask the magic 8 ball a question. Hint: Shadows bring beauty in me. Bright lights would weaken me. Disappoint me, and I would roll. Look deep in me and I’ll show you a soul. What am I?");
     }
 }
