@@ -5,6 +5,8 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -12,16 +14,19 @@ public class PigLatin implements ActionListener {
 
 	JFrame frame = new JFrame();
 	JPanel panel = new JPanel();
-	JTextField x = new JTextField(5);
+	JTextField input = new JTextField(5);
+	JLabel output = new JLabel();
 	JButton translate = new JButton("Translate");
-	String word = x.getText();
 	
 	public PigLatin() {
 		
 		translate.addActionListener(this);
-		panel.add(x);
+		panel.add(input);
 		panel.add(translate);
+		panel.add(output);
 		frame.add(panel);
+		frame.setVisible(true);
+		frame.pack();
 	}
 
 /**
@@ -88,6 +93,9 @@ return 0;
 @Override
 public void actionPerformed(ActionEvent arg0) {
 	// TODO Auto-generated method stub
-	translate(word);
+	String word = input.getText();
+	output.setText(translate(word));
+	frame.pack();
+	
 }
 }
