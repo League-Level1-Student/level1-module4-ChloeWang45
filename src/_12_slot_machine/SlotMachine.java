@@ -9,22 +9,28 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class SlotMachine {
 
 	JPanel panel = new JPanel();
 	JFrame frame = new JFrame();
-	Random rand = new Random();
+	Random ran1 = new Random();
+	Random ran2 = new Random();
+	Random ran3 = new Random();
 	JLabel cherry = new JLabel();
 	JLabel lime = new JLabel();
 	JLabel orange = new JLabel();
 	
 	public SlotMachine() {
 		
-		for(int i = 0; i < 3; i++) {
-			int r = rand.nextInt(3);
-			if(r == 0) {
+		int r1 = ran1.nextInt(3);
+		int r2 = ran2.nextInt(3);
+		int r3 = ran3.nextInt(3);
+		
+			
+			if(r1 == 0) {
 				try {
 					cherry = createLabelImage("cherry.jpg");
 				} catch (MalformedURLException e) {
@@ -34,7 +40,7 @@ public class SlotMachine {
 				cherry.setPreferredSize(new Dimension(600, 600));
 				panel.add(cherry);
 			}
-			else if(r == 1) {
+			else if(r1 == 1) {
 				try {
 					lime = createLabelImage("lime.jpg");
 				} catch (MalformedURLException e) {
@@ -44,7 +50,7 @@ public class SlotMachine {
 				lime.setPreferredSize(new Dimension(600, 600));
 				panel.add(lime);
 			}
-			else if(r == 2) {
+			else if(r1 == 2) {
 				try {
 					orange = createLabelImage("orange.jpg");
 				} catch (MalformedURLException e) {
@@ -54,11 +60,81 @@ public class SlotMachine {
 				orange.setPreferredSize(new Dimension(600, 600));
 				panel.add(orange);
 			}
+			
+			if(r2 == 0) {
+				try {
+					cherry = createLabelImage("cherry.jpg");
+				} catch (MalformedURLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				cherry.setPreferredSize(new Dimension(600, 600));
+				panel.add(cherry);
+			}
+			else if(r2 == 1) {
+				try {
+					lime = createLabelImage("lime.jpg");
+				} catch (MalformedURLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				lime.setPreferredSize(new Dimension(600, 600));
+				panel.add(lime);
+			}
+			else if(r2 == 2) {
+				try {
+					orange = createLabelImage("orange.jpg");
+				} catch (MalformedURLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				orange.setPreferredSize(new Dimension(600, 600));
+				panel.add(orange);
+			}
+			
+			if(r3 == 0) {
+				try {
+					cherry = createLabelImage("cherry.jpg");
+				} catch (MalformedURLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				cherry.setPreferredSize(new Dimension(600, 600));
+				panel.add(cherry);
+			}
+			else if(r3 == 1) {
+				try {
+					lime = createLabelImage("lime.jpg");
+				} catch (MalformedURLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				lime.setPreferredSize(new Dimension(600, 600));
+				panel.add(lime);
+			}
+			else if(r3 == 2) {
+				try {
+					orange = createLabelImage("orange.jpg");
+				} catch (MalformedURLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				orange.setPreferredSize(new Dimension(600, 600));
+				panel.add(orange);
+			}
+			
 			frame.add(panel);
 			frame.setVisible(true);
 			frame.pack();
+			
+			int wins = 0;
+			if(r1 == r2 && r2 == r3) {
+				wins++;
+				JOptionPane.showMessageDialog(null, "YOU WIN! You have won " + wins + " times.");
+			}
 		}
-	}
+	
+	
 	
 	private JLabel createLabelImage(String fileName) throws MalformedURLException{
         URL imageURL = getClass().getResource(fileName);
